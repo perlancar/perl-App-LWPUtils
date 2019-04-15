@@ -33,7 +33,7 @@ sub _lwputil_request {
             }
         }
         if (defined $args{content}) {
-            $req->content($opts{content});
+            $req->content($args{content});
         } elsif (!(-t STDIN)) {
             local $/;
             $req->content(scalar <STDIN>);
@@ -114,7 +114,7 @@ _
         # XXX option: post form
     },
 };
-sub http_tiny {
+sub lwputil_request {
     _lwputil_request('LWP::UserAgent', @_);
 }
 
